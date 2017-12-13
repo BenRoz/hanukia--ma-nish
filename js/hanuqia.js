@@ -63,34 +63,38 @@ start.addEventListener('click', startHanuka);
 //console.log(candleHeight);
 var candleNumber = 0;
 
+var timer;
+
 function startHanuka(){
 
-        setInterval(function lighting(){
-
-            //console.log(currentCandle.isBurning);
-           var currentCandle = hanukia.candles[candleNumber];
-            if (currentCandle['isBurning'] !='true'){
-
-            }
-            console.log(currentCandle.name);
-            document.getElementById("flame" + (candleNumber + 1)).style.backgroundColor="yellow";
-            currentCandle['isBuring'] = true;
-            if (candleNumber<9){
-            candleNumber = candleNumber + 1;
-            }
-
-    }, 3000);
+        timer = setInterval(function() {lighting()}, 3000);
 }
+  
 
-function shrink(){
-    setInterval(function inshrink(){
-    for (var x=0; x<9; x++){
-      if(hanukia.candles[x]['isBurning']==true){
-      console.log(hanukia.candles[x]['isBurning']);
-//                 document.getElementById("body" + (candleNumber + 1)).style.height=
-        }
+function lighting() {
+    var currentCandle = hanukia.candles[candleNumber];
+    if (currentCandle['isBurning'] !='true'){
+        document.getElementById("flame" + (candleNumber + 1)).style.backgroundColor="yellow";
     }
-
-    },1000);
+    if (candleNumber == 7){
+        stopLighting();
+    }
+    candleNumber = candleNumber + 1;
 }
-shrink();
+
+function stopLighting(){
+    clearInterval(timer);
+}
+
+// function shrink(){
+//     setInterval(function inshrink(){
+//     for (var x=0; x<9; x++){
+//       if(hanukia.candles[x]['isBurning']==true){
+//       console.log(hanukia.candles[x]['isBurning']);
+// //                 document.getElementById("body" + (candleNumber + 1)).style.height=
+//         }
+//     }
+
+//     },1000);
+// }
+// shrink();
