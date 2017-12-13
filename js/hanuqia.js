@@ -65,9 +65,9 @@ function startHanuka(){
         setInterval(function lighting(){
             var currentCandle = hanukia.candles[candleNumber];
             //console.log(currentCandle.isBurning);
-            if (currentCandle['isBurning'] =='true'){
+            if (currentCandle['isBurning'] !='true'){
             console.log(currentCandle.name);
-            document.getElementById("flame" + candleNumber).style.backgroundColor="yellow";
+            document.getElementById("flame" + (candleNumber + 1)).style.backgroundColor="yellow";
             }
             candleNumber = candleNumber + 1;
     }, 3000);
