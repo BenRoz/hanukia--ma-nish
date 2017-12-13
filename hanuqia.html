@@ -31,7 +31,7 @@
 <body>
 <div class="main">
     <div class="candle" id="candle1">
-        <button ><div class="flame" onclick="onPress(this.id)" id="flame1"> </div></button>
+        <div class="flame" onclick="onPress(this.id)" id="flame1"> </div>
         <div class="candleBody" id="body1"> </div>
     </div>
     <div class="candle" id="candle2">
@@ -64,6 +64,7 @@
     </div>
 </div>
 <div id="footer" style="background:green; height:50px;"></div>
+<button id="start" >Start hanuka</button>
 
 <script>
 
@@ -102,7 +103,7 @@ var hanukia = {
     {
     name: "candle7",
     color: 'yellow',
-    isBurning:'false',
+    isBurning:'true',
     },
     {
     name: "candle8",
@@ -114,28 +115,32 @@ var hanukia = {
 };
 
  function light(){
-    for(var i=0; i<=hanukia.candles.length; i++){
+    for(var i=0; i<hanukia.candles.length; i++){
       var currentCandle=hanukia.candles[i];
-      console.log(currentCandle);
-      if (currentCandle.isBurning==='true'){
+      console.log(currentCandle.isBurning);
+      if (currentCandle['isBurning'] =='true'){
       console.log(currentCandle.name);
-        document.getElementById("flame"+[i]).style.backgroundColor="yellow";
+        document.getElementById("flame"+(i + 1)).style.backgroundColor="yellow";
       }
     }
 
 }
 light();
 
-function onPress(id){
+var start = document.getElementById('start');
+start.addEventListener('click', startHanuka);
 
-    if (document.getElementById(id).style.backgroundColor=="yellow"){
-        document.getElementById(id).style.backgroundColor="#FFFFFF";
-    }
-    else{
-        document.getElementById(id).style.backgroundColor="yellow";
-    }
-    console.log(id);
-}
+
+<!--function onPress(id){-->
+
+    <!--if (document.getElementById(id).style.backgroundColor=="yellow"){-->
+        <!--document.getElementById(id).style.backgroundColor="#FFFFFF";-->
+    <!--}-->
+    <!--else{-->
+        <!--document.getElementById(id).style.backgroundColor="yellow";-->
+    <!--}-->
+    <!--console.log(id);-->
+<!--}-->
 </script>
 </body>
 </html>
