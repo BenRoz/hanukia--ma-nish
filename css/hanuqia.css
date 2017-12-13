@@ -1,0 +1,21 @@
+.main{
+    height:400px;
+    display: flex;
+    justify-content:space-around;
+}
+.candle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+}
+.flame{
+    width:50% ;
+    height:50px;
+    border: 1px solid black;
+}
+.candleBody{
+    width:100px;
+    height:300px;
+    background: blue;
+}

@@ -3,30 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        .main{
-        height:400px;
-        display: flex;
-        justify-content:space-around;
-        }
-        .candle{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .flame{
-        width:50% ;
-        height:50px;
-        border: 1px solid black;
-        }
-        .candleBody{
-        width:100px;
-        height:300px;
-        background: blue;
-        }
-
-    </style>
 </head>
 <body>
     <!-- Manish habibi is this working-->
@@ -66,82 +42,5 @@
 </div>
 <div id="footer" style="background:green; height:50px;"></div>
 <button id="start" >Start hanuka</button>
-
-<script>
-
-var hanukia = {
-    candles:[
-    {
-    name: "candle1",
-    color: 'yellow',
-    isBurning:'true',
-    },
-    {
-    name: "candle2",
-    color: 'yellow',
-    isBurning:'true',
-    },
-    {
-    name: "candle3",
-    color: 'yellow',
-    isBurning:'false',
-    },
-    {
-    name: "candle4",
-    color: 'yellow',
-    isBurning:'false',
-    },
-    {
-    name: "candle5",
-    color: 'yellow',
-    isBurning:'true',
-    },
-    {
-    name: "candle6",
-    color: 'yellow',
-    isBurning:'false',
-    },
-    {
-    name: "candle7",
-    color: 'yellow',
-    isBurning:'true',
-    },
-    {
-    name: "candle8",
-    color: 'yellow',
-    isBurning:'true',
-    },
-
-    ],
-};
-
- function light(){
-    for(var i=0; i<hanukia.candles.length; i++){
-      var currentCandle=hanukia.candles[i];
-      console.log(currentCandle.isBurning);
-      if (currentCandle['isBurning'] =='true'){
-      console.log(currentCandle.name);
-        document.getElementById("flame"+(i + 1)).style.backgroundColor="yellow";
-      }
-    }
-
-}
-light();
-
-var start = document.getElementById('start');
-start.addEventListener('click', startHanuka);
-
-
-<!--function onPress(id){-->
-
-    <!--if (document.getElementById(id).style.backgroundColor=="yellow"){-->
-        <!--document.getElementById(id).style.backgroundColor="#FFFFFF";-->
-    <!--}-->
-    <!--else{-->
-        <!--document.getElementById(id).style.backgroundColor="yellow";-->
-    <!--}-->
-    <!--console.log(id);-->
-<!--}-->
-</script>
 </body>
 </html>
