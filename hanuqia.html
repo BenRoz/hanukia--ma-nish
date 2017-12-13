@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .main{
+        height:400px;
+        display: flex;
+        justify-content:space-around;
+        }
+        .candle{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .flame{
+        width:50% ;
+        height:50px;
+        border: 1px solid black;
+        }
+        .candleBody{
+        width:100px;
+        height:300px;
+        background: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="candle" id="candle1">
+        <button ><div class="flame" onclick="onPress(this.id)" id="flame1"> </div></button>
+        <div class="candleBody" id="body1"> </div>
+    </div>
+    <div class="candle" id="candle2">
+        <div class="flame" onclick="onPress(this.id)" id="flame2"> </div>
+        <div class="candleBody" id="body2"> </div>
+    </div>
+    <div class="candle" id="candle3">
+        <div class="flame" onclick="onPress(this.id)"  id="flame3"> </div>
+        <div class="candleBody" id="body3"> </div>
+    </div>
+    <div class="candle" id="candle4">
+        <div class="flame" onclick="onPress(this.id)"  id="flame4"> </div>
+        <div class="candleBody" id="body4"> </div>
+    </div>
+   <div class="candle" id="candle5">
+        <div class="flame" onclick="onPress(this.id)"  id="flame5" > </div>
+        <div class="candleBody" id="body5"> </div>
+    </div>
+    <div class="candle" id="candle6">
+        <div class="flame" onclick="onPress(this.id)"  id="flame6"> </div>
+        <div class="candleBody" id="body6"> </div>
+    </div>
+    <div class="candle" id="candle7">
+        <div class="flame" onclick="onPress(this.id)"  id="flame7"> </div>
+        <div class="candleBody" id="body7"> </div>
+    </div>
+    <div class="candle" id="candle8">
+        <div class="flame" onclick="onPress(this.id)"  id="flame8"> </div>
+        <div class="candleBody" id="body8"> </div>
+    </div>
+</div>
+<div id="footer" style="background:green; height:50px;"></div>
+
+<script>
+
+var hanukia = {
+    candles:[
+    {
+    name: "candle1",
+    color: 'yellow',
+    isBurning:'true',
+    },
+    {
+    name: "candle2",
+    color: 'yellow',
+    isBurning:'true',
+    },
+    {
+    name: "candle3",
+    color: 'yellow',
+    isBurning:'false',
+    },
+    {
+    name: "candle4",
+    color: 'yellow',
+    isBurning:'false',
+    },
+    {
+    name: "candle5",
+    color: 'yellow',
+    isBurning:'true',
+    },
+    {
+    name: "candle6",
+    color: 'yellow',
+    isBurning:'false',
+    },
+    {
+    name: "candle7",
+    color: 'yellow',
+    isBurning:'false',
+    },
+    {
+    name: "candle8",
+    color: 'yellow',
+    isBurning:'true',
+    },
+
+    ],
+};
+
+ function light(){
+    for(var i=0; i<=hanukia.candles.length; i++){
+      var currentCandle=hanukia.candles[i];
+      console.log(currentCandle);
+      if (currentCandle.isBurning==='true'){
+      console.log(currentCandle.name);
+        document.getElementById("flame"+[i]).style.backgroundColor="yellow";
+      }
+    }
+
+}
+light();
+
+function onPress(id){
+
+    if (document.getElementById(id).style.backgroundColor=="yellow"){
+        document.getElementById(id).style.backgroundColor="#FFFFFF";
+    }
+    else{
+        document.getElementById(id).style.backgroundColor="yellow";
+    }
+    console.log(id);
+}
+</script>
+</body>
+</html>
