@@ -44,23 +44,11 @@ var hanukia = {
     ],
 };
 
-//  function light(){
-//     for(var i=0; i<hanukia.candles.length; i++){
-//       var currentCandle=hanukia.candles[i];
-//       console.log(currentCandle.isBurning);
-//       if (currentCandle['isBurning'] =='true'){
-//       console.log(currentCandle.name);
-//         document.getElementById("flame"+(i + 1)).style.backgroundColor="yellow";
-//       }
-//     }
-
-// }
-// light();
 
 var start = document.getElementById('start');
 start.addEventListener('click', startHanuka);
-//var candleHeight = document.getElementsByClassName("candleBody").style.height;
-//console.log(candleHeight);
+start.addEventListener('click', shrink);
+
 var candleNumber = 0;
 
 var timer;
@@ -75,6 +63,7 @@ function lighting() {
     var currentCandle = hanukia.candles[candleNumber];
     if (currentCandle['isBurning'] !='true'){
         document.getElementById("flame" + (candleNumber + 1)).style.backgroundColor="yellow";
+        currentCandle['isBurning'] = true;
     }
     if (candleNumber == 7){
         stopLighting();
@@ -86,15 +75,27 @@ function stopLighting(){
     clearInterval(timer);
 }
 
-// function shrink(){
-//     setInterval(function inshrink(){
-//     for (var x=0; x<9; x++){
-//       if(hanukia.candles[x]['isBurning']==true){
-//       console.log(hanukia.candles[x]['isBurning']);
-// //                 document.getElementById("body" + (candleNumber + 1)).style.height=
-//         }
-//     }
+var shrinkTimer;
 
-//     },1000);
-// }
-// shrink();
+function shrink(){
+    shrinkTimer = setInterval(function(){ inShrink()}, 6000);
+}
+var bodyNumber = 0;  
+function inShrink(){
+    var currentBody = hanukia.candles[bodyNumber];
+    if(currentBody['isBurning'] == true){
+        var bodyHeight = document.getElementById('body' + (bodyNumber + 1)); 
+        bodyHeight.style.height = (parseInt(bodyHeight.clientHeight) - 15) + 'px';
+        if (bodyHeight.style.height == '0px'){
+            document.getElementById("flame" + (bodyNumber + 1)).style.backgroundColor="white";
+            currentBody['isBurning'] == false;
+        }
+    } 
+    if (bodyNumber < 7 ){
+        bodyNumber = bodyNumber + 1;
+    }  else {
+        bodyNumber = 0;
+    }
+}
+
+ 
